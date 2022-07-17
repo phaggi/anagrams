@@ -130,4 +130,7 @@ dmypy.json
 
 # PyCharm
 .idea/
+
+# My Project
 /russian_nouns.txt
+/testdir/
