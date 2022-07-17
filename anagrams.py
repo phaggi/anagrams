@@ -10,8 +10,10 @@ target = set(target)
 
 superdata = permutations(list(word))
 
+
 def join_next_word(next_word):
     return ''.join(next_word)
+
 
 def find_words(data, target):
     data = [join_next_word(item) for item in data]
@@ -30,7 +32,7 @@ data = set('t')
 while len(data):
     stop = start + step
     print(start, stop)
-    data = set(islice(superdata, start, stop+1))
+    data = set(islice(superdata, start, stop + 1))
     upd = find_words(data, target)
     if upd:
         print(upd)
