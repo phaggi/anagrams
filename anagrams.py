@@ -36,7 +36,6 @@ class Vocabulary:
         while self.word not in self.full_nouns and self.word != '':
             self.word = input(self.input_text).lower()
 
-
     def set_nouns(self):
         self.nouns = {item for item in self.full_nouns if len(item) == len(self.word)}
 
@@ -48,7 +47,30 @@ class Vocabulary:
         if self.word == '':
             raise Exception('Конец работы.')
         self.set_nouns()
-        return {''.join(i) for i in permutations(list(self.word))} & self.nouns
+        anagrams = {''.join(i) for i in permutations(list(self.word))} & self.nouns
+        self.word = None
+        return anagrams
+
+
+def print_anagrams(anagrams: set):
+    print('\n'.join(sorted(list(anagrams))))
+
+
+def find_anagrams(word: str = None, cycle: bool = False):
+    """
+
+    :param word: str russian noun word.
+    :param cycle: bool if True, anagrams will work until operator send empty string.
+    If empty string, will raise exception.
+    :return: print anagrams for word.
+    """
+    voc = Vocabulary()
+    if word is not None:
+        print_anagrams(voc.find_anagrams(word))
+    else:
+        print_anagrams(voc.find_anagrams())
+        while cycle:
+            print_anagrams(voc.find_anagrams())
 
 
 if __name__ == '__main__':
