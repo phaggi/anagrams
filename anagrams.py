@@ -1,5 +1,24 @@
-from itertools import *
-from pprint import pformat
+from itertools import permutations
+from pathlib import Path
+from configs import NounsConfig
+
+
+class Nouns:
+    def __init__(self, nouns_file=None):
+        if nouns_file is None:
+            self.nouns_file = Path(NounsConfig().load()[NounsConfig().nouns_file_path_key])
+        else:
+            self.nouns_file = nouns_file
+        self.full_nouns = None
+        self.set_full_nouns()
+
+    def set_full_nouns(self):
+        try:
+            with open(self.nouns_file, 'rb') as nouns_obj:
+                target = nouns_obj.read().decode("UTF-8").splitlines()
+                self.full_nouns = set(target)
+        except FileNotFoundError:
+            print(f'Файл {self.nouns_file} не найден.')
 
 
 class Vocabulary:
@@ -33,5 +52,6 @@ class Vocabulary:
 
 
 if __name__ == '__main__':
-    voc = Vocabulary()
+    nouns = Nouns().full_nouns
+    voc = Vocabulary(nouns)
     print('\n'.join(sorted(list(voc.find_anagrams()))))
