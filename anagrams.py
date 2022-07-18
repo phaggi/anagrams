@@ -13,6 +13,10 @@ class Nouns:
         self.set_full_nouns()
 
     def set_full_nouns(self):
+        """
+        make self.full_nouns set from TXT (self.nouns_file)
+        :return:
+        """
         try:
             with open(self.nouns_file, 'rb') as nouns_obj:
                 target = nouns_obj.read().decode("UTF-8").splitlines()
