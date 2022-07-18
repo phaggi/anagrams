@@ -27,9 +27,9 @@ class Nouns:
 
 class Vocabulary:
     input_text = 'Введите русское слово существительное:'
-    nouns = None
 
     def __init__(self, full_nouns=None):
+        self.nouns = None
         self.word = None
         if full_nouns is None:
             self.full_nouns = Nouns().full_nouns
