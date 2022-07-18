@@ -1,6 +1,6 @@
 # anagrams
 Find and print an anagrams for noun word.<br>
-###Requirements:
+### Requirements:
 
     python~=3.7
     toml~=0.10.2
@@ -14,4 +14,4 @@ See at anagrams.py examples for use.
     - find_anagrams()
     - find_anagrams(cycle=True)
 
-v0.1.1-alpha
+v0.1.2-alpha
