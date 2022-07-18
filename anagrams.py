@@ -37,13 +37,26 @@ class Vocabulary:
             self.full_nouns = full_nouns
 
     def set_word(self):
+        """
+        make correct self.word from parameter or input
+        :return:
+        """
         while self.word not in self.full_nouns and self.word != '':
             self.word = input(self.input_text).lower()
 
     def set_nouns(self):
+        """
+        make self.nouns from words with length as a word length
+        :return:
+        """
         self.nouns = {item for item in self.full_nouns if len(item) == len(self.word)}
 
     def find_anagrams(self, word: str = None) -> set:
+        """
+        find an anagrams to the 'word' in the dictionary (self.nouns)
+        :param word:
+        :return:
+        """
         if word is None and self.word != '':
             self.set_word()
         elif word.isalpha() and word.lower() in self.full_nouns:
@@ -57,6 +70,11 @@ class Vocabulary:
 
 
 def print_anagrams(anagrams: set):
+    """
+    print sorted set of anagrams by row
+    :param anagrams:
+    :return:
+    """
     print('\n'.join(sorted(list(anagrams))))
 
 
