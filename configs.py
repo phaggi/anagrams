@@ -28,6 +28,7 @@ def get_in_file_name(filetypes=None) -> Path:
     root.destroy()
     return filename
 
+
 class Config:
     def __init__(self):
         self.config_name = 'config.toml'
@@ -63,8 +64,6 @@ class NounsConfig(Config):
     def test_nouns_file_path(self):
         if not Path(self.nouns_file_path).is_file():
             self.save({self.nouns_file_path_key: str(get_in_file_name())})
-
-
 
 
 if __name__ == '__main__':
