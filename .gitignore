@@ -133,6 +133,7 @@ dmypy.json
 
 # My Project
 /russian_nouns.txt
-/testdir/
+/_testdir/
 /config.json
 /config.toml
+/dictionaries/russian_nouns.txt

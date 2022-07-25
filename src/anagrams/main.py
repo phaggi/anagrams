@@ -1,6 +1,6 @@
 from itertools import permutations
 from pathlib import Path
-from configs import NounsConfig
+from src.anagrams.config import NounsConfig
 
 
 class Nouns:
